@@ -31,7 +31,7 @@ import {
               {...register("search", { required: true })}
               mr="2"
               type="text"
-              placeholder="Intenta con 'chicken' o 'beans'"
+              placeholder="Try 'chicken' o 'beans'"
             />{" "}
             <Button type="submit" color="white" bgColor="blue.400">
               Buscar

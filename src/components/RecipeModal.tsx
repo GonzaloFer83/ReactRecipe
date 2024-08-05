@@ -50,7 +50,7 @@ import {
   
             <ModalFooter>
               <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Cerrar
+                Close
               </Button>
             </ModalFooter>
           </ModalContent>

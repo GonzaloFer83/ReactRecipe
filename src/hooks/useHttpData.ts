@@ -6,33 +6,11 @@ export default <T>(url?: string) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    let aborted = false;
     if (!url) {
       return;
     }
-
-    setLoading(true);
-    const controller = new AbortController();
-    const signal = controller.signal;
-    axios
-      .get<T>(url, { signal })
-      .then(({ data }) => {
-        if (!aborted) {
-          setData(data);
-        }
-      })
-      .catch((e) => console.log(e))
-      .finally(() => {
-        if (!aborted) {
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      controller.abort();
-      aborted = true;
-    };
-  }, [url]);
+    search(url);
+  },[url]);
 
   const search = (url: string) => {
     setLoading(true);
