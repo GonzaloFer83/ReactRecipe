@@ -12,6 +12,7 @@ import {
   Button,
   Collapse,
   ModalFooter,
+  Box,
 } from "@chakra-ui/react";
 import { TimeIcon } from "@chakra-ui/icons";
 import { BiChat, BiLike } from "react-icons/bi";
@@ -31,22 +32,30 @@ function RecipeModalContent({ data, ingredients }: Props) {
       <ModalHeader>{data?.strMeal}</ModalHeader>
       <ModalCloseButton />
       <ModalBody>
-          <Image
-          width="100%"
-          borderRadius="lg"
-          src={data?.strMealThumb}
-          alt={data?.strMeal}
-        />
-        <Heading mt="4" mb="4" size="md">
-          {
-            t('INGREDIENTS')
-          }<TimeIcon color ="yellow.500" ml ="2"/>
-        </Heading>
-        <OrderedList>
-          {ingredients.map((ingredient) => (
-            <ListItem key={ingredient}>{ingredient}</ListItem>
-          ))}
-        </OrderedList>
+        <Box display="flex" alignItems="flex-start" marginBottom="20px">
+          <Box width="500px" height="500px" overflow="hidden" mr="20px">
+            <Image
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              borderRadius="lg"
+              src={data?.strMealThumb}
+              alt={data?.strMeal}
+            />
+          </Box>
+          <Box>
+            <Heading mt="4" mb="4" size="md" display="flex" alignItems="center">
+              {t('INGREDIENTS')}
+              <TimeIcon color="yellow.500" ml="2" />
+            </Heading>
+            <OrderedList>
+              {ingredients.map((ingredient) => (
+                <ListItem key={ingredient}>{ingredient}</ListItem>
+              ))}
+            </OrderedList>
+          </Box>
+        </Box>
+          
         <Button mt="4" onClick={handleToggle} >{t('SHOW')} {show ? t('LESS'):t('RECIPE') }</Button>
         <Collapse in={show} animateOpacity >
            <Text whiteSpace="pre-line" mt="4">

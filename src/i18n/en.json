@@ -9,5 +9,6 @@
     "SHOW":"Show",
     "LESS":"Less",
     "RECIPE":"Recipe",
-    "LANGUAGE":"Language"
+    "LANGUAGE":"Language",
+    "TRY_OTHER":"Try 'chicken' o 'beans'"
 }

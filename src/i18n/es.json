@@ -9,5 +9,6 @@
     "SHOW":"Mostrar",
     "LESS":"Menos",
     "RECIPE":"Receta",
-    "LANGUAGE":"Idioma"
+    "LANGUAGE":"Idioma",
+    "TRY_OTHER":"Prueba con 'chicken' o 'beans'"
 }

@@ -42,7 +42,7 @@ import { useState } from "react";
               {...register("search", { required: true })}
               mr="2"
               type="text"
-              placeholder="Try 'chicken' o 'beans'"
+              placeholder={t('TRY_OTHER')}
             />{" "}
             <Button type="submit" color="white" bgColor="blue.400">
               {

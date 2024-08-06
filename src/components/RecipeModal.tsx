@@ -8,6 +8,7 @@ import {
   import { MealDetails } from "../types";
   import RecipeModalLoading from "./RecipeModalSkeleton";
   import RecipeModalContent from "./RecipeModalContent";
+import { useTranslation } from "react-i18next";
   
   type Props = {
     onClose: () => void;
@@ -33,6 +34,7 @@ import {
       : [];
   
   function RecipeModal({ onClose, isOpen, data, loading }: Props) {
+    const {t} = useTranslation();
     if (!loading && !data) return;
     const ingredientsArray: number[] = Array(20).fill(0);
     const ingredients = calculateIngredients(data, ingredientsArray);
@@ -41,7 +43,7 @@ import {
       <>
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent maxWidth="800px">
             {loading ? (
               <RecipeModalLoading />
             ) : (
@@ -50,7 +52,9 @@ import {
   
             <ModalFooter>
               <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
+                {
+                  t('CLOSE')
+                }
               </Button>
             </ModalFooter>
           </ModalContent>
