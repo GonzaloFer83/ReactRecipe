@@ -7,6 +7,8 @@ import {
     CardFooter,
     Button,
   } from "@chakra-ui/react";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
   
   type Props = {
     photo: string;
@@ -15,6 +17,7 @@ import {
   };
   
   function MealCard({ photo, text, openMeal }: Props) {
+    const {t} = useTranslation();
     return (
       <Card boxShadow="lg">
         <CardBody>
@@ -26,7 +29,9 @@ import {
   
         <CardFooter pt="0">
           <Button onClick={openMeal} bgColor="blue.400" color="white">
-            Ver receta
+            {
+              t('SHOW_MEAL')
+            }
           </Button>
         </CardFooter>
       </Card>

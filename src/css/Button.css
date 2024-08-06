@@ -1,0 +1,18 @@
+.button {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin espaciado interno */
+    cursor: pointer; /* Cambia el cursor a una mano */
+    display: inline-flex; /* Bloque en línea flexible */
+    align-items: center; /* Alinear verticalmente */
+    justify-content: center; /* Alinear horizontalmente */
+    width: fit-content; /* Ajusta el tamaño del botón al contenido */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.button img {
+    display: block; /* Asegura que la imagen no tenga espacio extra */
+    width: 50%; /* Reduce el ancho de la imagen al 50% */
+    height: auto; /* Ajusta la altura proporcionalmente */
+    pointer-events: none; /* Desactiva eventos de ratón en la imagen */
+}

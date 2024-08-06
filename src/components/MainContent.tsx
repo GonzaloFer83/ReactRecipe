@@ -12,7 +12,11 @@ type Props = {
 function MainContent({ loading, meals, openMeal }: Props) {
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
-    <SimpleGrid columns={{ lg: 3, sm: 2 }} spacingX="20px" spacingY="20px">
+    <>
+    
+    {meals === null ? (<img width="100%" src="https://lh6.googleusercontent.com/Bu-pRqU_tWZV7O3rJ5nV1P6NjqFnnAs8kVLC5VGz_Kf7ws0nDUXoGTc7pP87tyUCfu8VyXi0YviIm7CxAISDr2lJSwWwXQxxz98qxVfMcKTJfLPqbcfhn-QEeOowjrlwX1LYDFJN"/>)  
+      :(
+       <SimpleGrid columns={{ lg: 3, sm: 2 }} spacingX="20px" spacingY="20px">
       {loading && skeletons.map((skeleton) => <SkeletonCard key={skeleton} />)}
       {!loading &&
         meals?.map((meal) => (
@@ -23,7 +27,10 @@ function MainContent({ loading, meals, openMeal }: Props) {
             text={meal.strMeal}
           />
         ))}
-    </SimpleGrid>
+    </SimpleGrid> 
+      )}
+    
+    </>
   );
 }
 

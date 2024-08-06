@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { TimeIcon } from "@chakra-ui/icons";
 import { BiChat, BiLike } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   data?: MealDetails;
@@ -24,6 +25,7 @@ type Props = {
 function RecipeModalContent({ data, ingredients }: Props) {
   const [show, setShow] = React.useState(false)
   const handleToggle = ()=> setShow(!show)
+  const {t} = useTranslation();
   return (
     <>
       <ModalHeader>{data?.strMeal}</ModalHeader>
@@ -36,26 +38,32 @@ function RecipeModalContent({ data, ingredients }: Props) {
           alt={data?.strMeal}
         />
         <Heading mt="4" mb="4" size="md">
-          Ingredients <TimeIcon color ="yellow.500"/>
+          {
+            t('INGREDIENTS')
+          }<TimeIcon color ="yellow.500" ml ="2"/>
         </Heading>
         <OrderedList>
           {ingredients.map((ingredient) => (
             <ListItem key={ingredient}>{ingredient}</ListItem>
           ))}
         </OrderedList>
-        <Button mt="4" onClick={handleToggle} >Show {show ? "Less": "Recipe"}</Button>
-        <Collapse in={show} animateOpacity>
-           <Text whiteSpace="pre-line">
+        <Button mt="4" onClick={handleToggle} >{t('SHOW')} {show ? t('LESS'):t('RECIPE') }</Button>
+        <Collapse in={show} animateOpacity >
+           <Text whiteSpace="pre-line" mt="4">
               {data?.strInstructions}
             </Text>
         </Collapse>
       </ModalBody>
       <ModalFooter>
           <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
-          Like
+          {
+            t('LIKE')
+          }
         </Button>
         <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
-          Comment
+        {
+          t('COMENT')
+        }
         </Button>
       </ModalFooter>
     </>
